@@ -1,3 +1,7 @@
+import os
+
+AISHUBAPI_USERNAME = os.environ['AISHUBAPI_USERNAME']
+
 # Update interval to store the latest position received
 POSTGRES_WINDOW = int(2*60)  # in seconds
 

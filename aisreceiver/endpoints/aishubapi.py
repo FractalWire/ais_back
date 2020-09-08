@@ -16,7 +16,7 @@ from django.contrib.gis.geos import Point
 from core.models import BaseInfos
 from core.service import BaseService, ServiceEvent
 
-from aisreceiver.app_settings import AISHUBAPI_WINDOW
+from aisreceiver.app_settings import AISHUBAPI_WINDOW, AISHUBAPI_USERNAME
 from aisreceiver import aisbuffer
 
 import logging
@@ -54,9 +54,8 @@ format_ = Format.AIS_ENCODING
 output = Output.JSON
 compression = Compression.GZIP
 
-# TODO: Remove that from git !
 parameters = {
-    'username': 'AH_2575_E34F276C',
+    'username': AISHUBAPI_USERNAME,  # 'AH_2575_E34F276C',
     'format': format_.value,
     'output': output.value,
     'compress': compression.value,
