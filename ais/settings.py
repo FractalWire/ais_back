@@ -20,6 +20,11 @@ import logging
 from logformat import StyleAdapter
 
 
+def environ_or_default(env_name: str, default: str) -> str:
+    """Get environment variable or return a default value"""
+    return os.environ[env_name] if env_name in os.environ else default
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -28,7 +33,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 's)$47740z$%$kg1&5=rg1z=nec%f-5adh^n%31b#nlmjf5^^@@'
+SECRET_KEY = environ_or_default(
+    'DJANGO_SECRET',
+    's)$47740z$%$kg1&5=rg1z=nec%f-5adh^n%31b#nlmjf5^^@@')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False  # Must be False for no memory leak
@@ -84,11 +91,6 @@ WSGI_APPLICATION = 'ais.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-def environ_or_default(env_name: str, default: str) -> str:
-    """Get environment variable or return a default value"""
-    return os.environ[env_name] if env_name in os.environ else default
-
 
 DATABASES = {
     'default': {
