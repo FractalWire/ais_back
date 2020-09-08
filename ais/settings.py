@@ -159,12 +159,6 @@ def handle_unhandled_exception(type_, value, traceback):
 
 sys.excepthook = handle_unhandled_exception
 
-# REDIS parameters, OBSOLETE
-# REDIS_CONF = {
-#     'host': 'localhost',
-#     'port': 6379,
-# }
-
 # Configure csv dialect
 DIALECT_NAME = 'postgres'
 csv.register_dialect(DIALECT_NAME, delimiter='|', escapechar='\\',
