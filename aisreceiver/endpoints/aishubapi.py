@@ -55,7 +55,7 @@ output = Output.JSON
 compression = Compression.GZIP
 
 parameters = {
-    'username': AISHUBAPI_USERNAME,  # 'AH_2575_E34F276C',
+    'username': AISHUBAPI_USERNAME,
     'format': format_.value,
     'output': output.value,
     'compress': compression.value,
